@@ -1,0 +1,58 @@
+{
+  "version": 8,
+  "configurePresets": [
+    {
+      "name": "base-linux",
+
+      "generator": "Ninja",
+
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "installDir": "${sourceDir}/build/install/${presetName}",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Linux"
+      }
+    },
+    {
+      "name": "base",
+      "hidden": true,
+
+      "generator": "Visual Studio 18 2026",
+
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "installDir": "${sourceDir}/build/install/${presetName}",
+
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Windows"
+      }
+    },
+    {
+      "name": "windebug-config",
+      "inherits": "base",
+
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
+      },
+
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    }
+  ],
+
+  "buildPresets": [
+    {
+      "name": "Windows-Debug",
+      "configurePreset": "windebug-config"
+    },
+    {
+      "name": "Linux-Build",
+      "configurePreset": "base-linux"
+    }
+  ]
+}
