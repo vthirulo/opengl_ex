@@ -12,7 +12,8 @@
         "type": "equals",
         "lhs": "${hostSystemName}",
         "rhs": "Linux"
-      }
+      },
+      "copyCompileCommands": "${workspaceFolder}/compile_commands.json"
     },
     {
       "name": "base",
