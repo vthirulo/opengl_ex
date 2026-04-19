@@ -1,5 +1,12 @@
 
 .cache
+.vscode
+compile_commands.json
+
+bin
 
 build
 out
+
+SDL
+
