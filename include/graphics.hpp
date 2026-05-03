@@ -10,13 +10,13 @@ public:
     void Display();
 
 private:
-    enum VAO_IDs { Triangles, NumVAOs };
-    enum Buffer_IDs { ArrayBuffer, NumBuffers };
-    enum Attrib_IDs { vPosition = 0 };
+    GLuint VAO;
 
-    GLuint  VAOs[NumVAOs];
-    GLuint  Buffers[NumBuffers];
-
-    const GLuint    NumVertices { 6 };
+    GLuint pVBO, cVBO;
+    
+    enum attrib : GLuint
+    {
+        position = 0, color
+    };
 
 };
